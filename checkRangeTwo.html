@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <title>Check Range Two Integers</title>
+</head>
+<body>
+    <br>
+        <div class="ui placeholder  segment container">
+            <br>
+                <div class="ui one column very relaxed stackable grid">
+                  <div class="column">
+                    <div class="ui form">
+                            <div class="field">
+                                    <h4>Check whether two numbers are in range 40..60 or in the range 70..100 inclusive</h4>
+
+                                  </div>
+                      <div class="field">
+                        <label>Integer 1</label>
+                        <div class="ui left icon input">
+                          <input type="text" id="inputId" placeholder="" value="">
+                        </div>
+                      </div>
+
+                      <div class="field">
+                        <label>Integer 2</label>
+                        <div class="ui left icon input">
+                          <input id="inputId2" type="text" value="">
+                        </div>
+                      </div>
+
+                      <div class="field">
+                            <label>Result:</label>
+                            <div class="ui left icon">
+                              <div>
+                              <h3 id="resultId" class="resultClass spanClass" style="display: inline;" type="number;" placeholder="Result"></h3>
+                            </div>
+                            </div>
+                          </div>
+                      <div class="ui blue submit button convertBtnClass" id="calcTip">Enter</div>
+                      <br>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+        <script type="text/javascript">
+            let resultSpan = document.querySelector("#resultId")
+            let inputField = document.getElementById("inputId");
+            let inputField2 = document.getElementById("inputId2");
+            let submitBtn = document.getElementById("calcTip");
+
+            inputField.addEventListener("keyup", enterFunction);
+            inputField2.addEventListener("keyup", enterFunction);
+
+            submitBtn.addEventListener("keyup", enterFunction);
+            submitBtn.addEventListener("click", myFunction);
+
+            function myFunction(inputFieldVal1, inputFieldVal2){
+                inputFieldVal1 = Number(inputField.value);
+                inputFieldVal2 = Number(inputField2.value);
+
+                let in1;
+                let in2;
+                let message;
+                let answer;
+
+                if((isNaN(inputFieldVal1) || inputFieldVal1 === "" || inputFieldVal1 <= 0) || (isNaN(inputFieldVal2) || inputFieldVal2 === "" || inputFieldVal2 <= 0)){
+                    message = " Enter a Number & Complete the Fields"
+                    resultSpan.textContent = "\t"+ message;
+                } else {
+                    in1 = inputFieldVal1;
+                    in2 = inputFieldVal2;
+                    let ans = numbers_ranges(in1, in2 )
+                    if(ans) {
+                        answer = "True";
+                    } else {
+                        answer = "False";
+                    }
+                    resultSpan.textContent =  answer;
+                }
+             }
+    
+             function numbers_ranges(x, y) { 
+                if ((x >= 40 && x <= 60 && y >= 40 && y <= 60) || (x >= 70 && x <= 100 && y >= 70 && y <= 100)){ 
+                    return true; 
+                 } else { 
+                     return false; 
+                 } 
+            } 
+
+            function enterFunction(event) {
+                if (event.which === 13) {
+                    submitBtn.click();
+                }
+            }
+        </script>
+
+
+</body>
+</html>

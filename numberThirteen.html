@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <title>Number Thirteen</title>
+</head>
+<body>
+    <br>
+        <div class="ui placeholder  segment container">
+            <br>
+                <div class="ui one column very relaxed stackable grid">
+                  <div class="column">
+                    <div class="ui form">
+                            <div class="field">
+                                    <p>The difference between a given number and 13, if the number is greater than 13 it will return double the absolute difference.</p>
+                                  </div>
+                      <div class="field">
+                        <h3>Enter a number</h3>
+                        <div class="ui left icon input">
+                          <input type="text" id="inputId" placeholder="Enter a Celcius Value" value="">
+                        </div>
+                      </div>
+
+                      <div class="field">
+                          <label>Result:</label>
+                          <div class="ui left icon">
+                            <div>
+                            <h3 id="resultId1" class="resultClass spanClass" style="display: inline;" type="number;" placeholder="Result"></h3>
+                          </div>
+                          </div>
+                        </div>
+                      <div class="ui blue submit button convertBtnClass" id="calcTip1">Enter</div>
+
+                        <br>
+                        <br>
+                    <br>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+        <script type="text/javascript">
+            let resultSpan1 = document.querySelector("#resultId1")
+
+            let inputField1 = document.getElementById("inputId");
+            let submitBtn1 = document.getElementById("calcTip1");
+
+
+            inputField1.addEventListener("keyup", enterFunction1);
+
+            submitBtn1.addEventListener("keyup", enterFunction1);
+
+            submitBtn1.addEventListener("click", myFunction1);
+
+
+
+            function myFunction1(inputFieldVal1){
+                inputFieldVal1 = Number(inputField1.value);
+
+                let in1;
+                let message1;
+                let answer1;
+
+                if((isNaN(inputFieldVal1) || inputFieldVal1 === "" || inputFieldVal1 <= 0)){
+                    message1 = " Enter a Number & Complete the Fields"
+                    resultSpan1.textContent = "\t"+ message1;
+                } else {
+                    in1 = inputFieldVal1;
+                    answer1 = difference(in1);
+                    resultSpan1.textContent =  answer1;
+                }
+             }
+    
+             function difference(n) { 
+                if (n <= 13) {
+                    return 13 - n; 
+                } else {
+                    return (n - 13) * 2; 
+                }
+            } 
+
+            function enterFunction1(event) {
+                if (event.which === 13) {
+                    submitBtn1.click();
+                }
+            }
+
+        </script>
+
+
+</body>
+</html>

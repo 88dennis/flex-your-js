@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercise 2.0</title>
+
+    <style>
+      * {
+        font-family: 'Lato', sans-serif;
+      }
+    body {
+
+  color: #2c3e50;
+  background: #ecf0f1;
+  padding: 0 1em 1em;
+}
+h1 {
+  margin: 0;
+  line-height: 2;
+  text-align: center;
+}
+h2 {
+  margin: 0 0 0.5em;
+  font-weight: normal;
+}
+input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+.row {
+  display: flex;
+}
+.row .col {
+  flex: 1;
+}
+.row .col:last-child {
+  margin-left: 1em;
+}
+/* Accordion styles */
+.tabs {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
+}
+.tab {
+  width: 100%;
+  color: white;
+  overflow: hidden;
+}
+.tab-label {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  background: #2c3e50;
+  font-weight: bold;
+  cursor: pointer;
+  /* Icon */
+}
+.tab-label:hover {
+  background: #1a252f;
+}
+.tab-label::after {
+  content: "\276F";
+  width: 1em;
+  height: 1em;
+  text-align: center;
+  transition: all 0.35s;
+}
+.tab-content {
+  max-height: 0;
+  padding: 0 1em;
+  color: #2c3e50;
+  background: white;
+  transition: all 0.35s;
+}
+.tab-close {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1em;
+  font-size: 0.75em;
+  background: #2c3e50;
+  cursor: pointer;
+}
+.tab-close:hover {
+  background: #1a252f;
+}
+input:checked + .tab-label {
+  background: #1a252f;
+}
+input:checked + .tab-label::after {
+  transform: rotate(90deg);
+}
+input:checked ~ .tab-content {
+  max-height: 100vh;
+  padding: 1em;
+}
+
+    </style>
+</head>
+<body>
+    <h1> EXERCISES <sup>2.0</sup></h1>
+<div class="row">
+  <div class="col">
+    <div class="tabs">
+
+      <div class="tab">
+        <input type="checkbox" id="chck1">
+        <label class="tab-label" for="chck1">Angle Type Checker</label>
+        <div class="tab-content">
+         <a href="angleType.html">Write a JavaScript program to find the types of a given angle</a>
+        </div>
+      </div>
+
+      <div class="tab">
+        <input type="checkbox" id="chck2">
+        <label class="tab-label" for="chck2">Get Triangle Area given all three sides</label>
+        <div class="tab-content">
+          <a href="areaTriangle.html">Please enter the value of three sides to calculate the area</a>
+          </div>
+      </div>
+
+      <div class="tab">
+          <input type="checkbox" id="chck2">
+          <label class="tab-label" for="chck2">Get Triangle Area given all three sides</label>
+          <div class="tab-content">
+            <a href="checkGradeMarksRange.html">JavaScript program to check the total marks of a student in various examinations</a>
+            </div>
+        </div>
+
+        <div class="tab">
+            <input type="checkbox" id="chck2">
+            <label class="tab-label" for="chck2">Range Checker Three Integers</label>
+            <div class="tab-content">
+              <a href="checkRangeThree.html">JavaScript program to check whether three given integer values are in the range 50..99 (inclusive). Return true if one or more of them are in the said range.</a>
+              </div>
+          </div>
+
+          <div class="tab">
+              <input type="checkbox" id="chck2">
+              <label class="tab-label" for="chck2">Range Checker Two Integers</label>
+              <div class="tab-content">
+                <a href="checkRangeTwo.html">Check whether two numbers are in range 40..60 or in the range 70..100 inclusive</a>
+                </div>
+            </div>
+
+            <div class="tab">
+                <input type="checkbox" id="chck2">
+                <label class="tab-label" for="chck2">Number 13</label>
+                <div class="tab-content">
+                  <a href="numberThirteen.html">The difference between a given number and 13, if the number is greater than 13 it will return double the absolute difference.</a>
+                  </div>
+              </div>
+
+              <div class="tab">
+                  <input type="checkbox" id="chck2">
+                  <label class="tab-label" for="chck2">Divide a number Return a String</label>
+                  <div class="tab-content">
+                    <a href="numberToString.html">JavaScript program to divide two positive numbers and return a string with properly formatted commas.</a>
+                    </div>
+                </div>
+
+                <div class="tab">
+                    <input type="checkbox" id="chck2">
+                    <label class="tab-label" for="chck2">Reverse a Word</label>
+                    <div class="tab-content">
+                      <a href="reverseString.html">JavaScript program to reverse a given string.</a>
+                      </div>
+                  </div>
+                  <div class="tab">
+                      <input type="checkbox" id="chck2">
+                      <label class="tab-label" for="chck2">Celcius To Farenheit and Farenheit to Celcius</label>
+                      <div class="tab-content">
+                        <a href="temperatureConverter.html">Celcius To Farenheit and Farenheit to Celcius</a>
+                        </div>
+                    </div>
+
+                    <div class="tab">
+                        <input type="checkbox" id="chck2">
+                        <label class="tab-label" for="chck2">Convert Number to Hours : Mins</label>
+                        <div class="tab-content">
+                  
+                          <a href="timeConverter.html">JavaScript program to convert a given number to hours and minutes.</a>
+                          </div>
+                      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
