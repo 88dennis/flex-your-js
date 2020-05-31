@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <title>FizzBuzz</title>
+
+    <style>
+        ul .ulFizz {
+          list-style-type: none !important;
+          list-style: none !important;
+        };
+        li {
+            list-style: none;
+            list-style-type: none;
+            text-decoration: none;
+        };
+        </style>
+</head>
+
+<body>
+    <br>
+    <div class="ui placeholder  segment container">
+        <br>
+        <div class="ui one column very relaxed stackable grid">
+            <div class="column">
+                <div class="ui form">
+                    <div class="field">
+                        <p>JavaScript program which iterates the integers from 1 to 100. But for multiples of three
+                            print "Fizz" instead of the number and for the multiples of five print "Buzz". For numbers
+                            which are multiples of both three and five print "FizzBuzz".</p>
+                    </div>
+                    <div class="field">
+                        <h3>Enter a number between 1 to 100</h3>
+                        <div class="ui left icon input">
+                            <input maxlength="3" type="text" id="inputId" placeholder="Enter a Celcius Value" value="">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>Result:</label>
+                        <div class="ui left icon">
+                            <div>
+                                <h3 id="resultId1" class="resultClass spanClass" style="display: inline;" type="number;"
+                                    placeholder="Result"></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui blue submit button convertBtnClass" id="calcTip1">Enter</div>
+                    <br>
+                    <div style="text-align: center">
+                        <a href="index.html">Back to Home Page</a>
+                    </div>
+
+                    <br>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        let resultSpan1 = document.querySelector("#resultId1")
+
+        let inputField1 = document.getElementById("inputId");
+        let submitBtn1 = document.getElementById("calcTip1");
+
+
+        inputField1.addEventListener("keyup", enterFunction1);
+
+        submitBtn1.addEventListener("keyup", enterFunction1);
+
+        submitBtn1.addEventListener("click", myFunction1);
+
+
+
+        function myFunction1(inputFieldVal1) {
+            inputFieldVal1 = Number(inputField1.value);
+
+            let in1;
+            let message1;
+            let answer1;
+            if ((isNaN(inputFieldVal1) || inputFieldVal1 === "" || inputFieldVal1 <= 0 || inputFieldVal1 > 100)) {
+                message1 = " Enter a Number & Complete the Fields"
+                resultSpan1.textContent = "\t" + message1;
+            } else {
+                in1 = inputFieldVal1;
+                answer1 = fizzBuzz(in1);
+                resultSpan1.innerHTML = answer1;
+
+            }
+        }
+
+        function fizzBuzz(num) {
+            let text = "<ul class='ulFizz' >";
+            for (let i = 0; i <= num; i++) {
+                if (i === 0) {
+                    text = "";
+                    console.log(i + " ");
+                } else if (i % 3 === 0 && i % 5 === 0) {
+                    text = text + "<li>" + i + " FizzBuzz" + "</li>";
+                    console.log(i + " FizzBuzz");
+                } else if (i % 3 === 0) {
+                    text = text + "<li>" + i + " Fizz" + "</li>";
+                    console.log(i + " Fizz");
+                } else if (i % 5 === 0) {
+                    text = text + "<li>" + i + " Buzz" + "</li>";
+                    console.log(i + " Buzz");
+                } else {
+                    text = text + "<li>" + i + "</li>";
+                    console.log(i);
+                }
+            }
+            text = text + "</ul>";
+            return text
+        }
+
+
+        // function fizzBuzz(num) {
+
+        //     for ( var i = 1; i <= num; i++ ) {
+        //         if(i === 0 || i == 1) {
+        //             console.log(i)
+        //         }
+        //             if ( i%3 === 0 && i%5 === 0 ) { 
+        //                 console.log( i + " FizzBuzz" ); 
+        //                 } else if ( i%3 === 0 ) { 
+        //                     console.log(i+ " Fizz" ); 
+        //                     } else if ( i%5 === 0 ) { 
+        //                         console.log(i+ " Buzz" ); 
+        //                         } else { console.log(i); 
+        //                         } 
+        //                         };
+        // }
+
+
+        function enterFunction1(event) {
+            if (event.which === 13) {
+                submitBtn1.click();
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>

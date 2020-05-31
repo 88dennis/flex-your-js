@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <title>Get your Happy Number</title>
+</head>
+<body>
+    <br>
+        <div class="ui placeholder  segment container">
+            <br>
+                <div class="ui one column very relaxed stackable grid">
+                  <div class="column">
+                    <div class="ui form">
+                            <div class="field">
+                                    <p>"Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1. Those numbers for which this process ends in 1 are happy numbers, while those that do not end in 1 are unhappy numbers (or sad numbers)". Write a JavaScript program to find and print the first 5 happy numbers..</p>
+                                  </div>
+
+                                  <div class="field">
+                                    <label>Integer 1</label>
+                                    <div class="ui left icon input">
+                                      <input type="text" id="inputId" placeholder="" value="">
+                                    </div>
+                                  </div>
+            
+                                  <div class="field">
+                                    <label>Integer 2</label>
+                                    <div class="ui left icon input">
+                                      <input id="inputId2" type="text" value="">
+                                    </div>
+                                  </div>
+
+                      <div class="field">
+                          <label>Result:</label>
+                          <div class="ui left icon">
+                            <div>
+                            <h3 id="resultId" class="resultClass spanClass" style="display: inline;" type="number;" placeholder="Result"></h3>
+                          </div>
+                          </div>
+                        </div>
+                      <div class="ui blue submit button convertBtnClass" id="calcTip">Enter</div>
+                      <br>
+                      <div style = "text-align: center">
+                      <a href="index.html">Back to Home Page</a>
+                    </div>
+
+                        <br>
+                        <br>
+                    <br>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+        <script type="text/javascript">
+               let resultSpan = document.querySelector("#resultId")
+            let inputField = document.getElementById("inputId");
+            let inputField2 = document.getElementById("inputId2");
+            let submitBtn = document.getElementById("calcTip");
+
+            inputField.addEventListener("keyup", enterFunction);
+            inputField2.addEventListener("keyup", enterFunction);
+
+            submitBtn.addEventListener("keyup", enterFunction);
+            submitBtn.addEventListener("click", myFunction);
+
+            function myFunction(inputFieldVal1, inputFieldVal2){
+                inputFieldVal1 = Number(inputField.value);
+                inputFieldVal2 = Number(inputField2.value);
+
+                let in1;
+                let in2;
+                let message;
+                let answer;
+
+                if((isNaN(inputFieldVal1) || inputFieldVal1 === "" || inputFieldVal1 <= 0) || (isNaN(inputFieldVal2) || inputFieldVal2 === "" || inputFieldVal2 <= 0)){
+                    message = " Enter a Number & Complete the Fields"
+                    resultSpan.textContent = "\t"+ message;
+                } else {
+                    in1 = inputFieldVal1;
+                    in2 = inputFieldVal2;
+                    let ans = getHappyNums(in1, in2);
+                    console.log(ans)
+                    resultSpan.textContent =  ans;
+                }
+             }
+    
+             function check_happy_number(num) { 
+                var m, n ; var c = [] ; 
+                while(num != 1 && c[num] !== true) { 
+                    c[num] = true ; 
+                  m = 0 ; 
+
+                while (num > 0) {
+                   n = num % 10 ; 
+                  m += n * n ; 
+                     num = (num - n) / 10 ; 
+                    } num = m ; 
+                    } return (num == 1) ; 
+                    } 
+            
+            // var cnt = 5; 
+            // var num = 1;
+            function getHappyNums(numx, count) {
+             var f5 = ''; 
+                while(count-- > 0) { 
+                while(!check_happy_number(numx)) numx++ ; 
+                
+                f5 = f5+(numx + ", ") ; 
+                numx++ ; 
+                } 
+                // console.log(f5)
+                return (f5);
+            }
+            
+            function enterFunction(event) {
+                if (event.which === 13) {
+                    submitBtn1.click();
+                }
+            }
+
+        </script>
+
+
+</body>
+</html>
