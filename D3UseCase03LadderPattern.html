@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <title>Build A Ladder Pattern Using a Character</title>
+</head>
+<body>
+    <br>
+        <div class="ui placeholder  segment container">
+            <br>
+                <div class="ui one column very relaxed stackable grid">
+                  <div class="column">
+                    <div class="ui form">
+                            <div class="field">
+                                    <h4>Build A Ladder Pattern Using a Character.</h4>
+
+                                  </div>
+                      <div class="field">
+                        <label>Enter a Single Symbol</label>
+                          <input type="text" id="inputId" placeholder="" value="" maxlength="1">
+                      </div>
+
+                      <div class="field">
+                        <label>Enter number (choose from 2 to 15) for the steps </label>
+                          <input id="inputId2" type="text" value=" "maxlength="2">
+                      </div>
+
+                      <div class="field">
+                            <label>Result:</label>
+                            <div class="ui left icon">
+                              <div>
+                              <div id="resultId" class="resultClass spanClass" style="display: inline;" type="number;" placeholder="Result"></div>
+                            </div>
+                            </div>
+                          </div>
+                      <div class="ui blue submit button convertBtnClass" id="calcTip">Enter</div>
+                      <br>
+                      <div style = "text-align: center">
+                      <a href="index.html">Back to Home Page</a>
+                    </div>
+                      <br>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+        <script type="text/javascript">
+            let resultSpan = document.querySelector("#resultId")
+            let inputField = document.getElementById("inputId");
+            let submitBtn = document.getElementById("calcTip");
+            let inputField2 = document.getElementById("inputId2");
+            inputField2.addEventListener("keyup", enterFunction);
+
+            inputField.addEventListener("keyup", enterFunction);
+
+            submitBtn.addEventListener("keyup", enterFunction);
+            submitBtn.addEventListener("click", myFunction);
+
+            function myFunction(inputFieldVal1, inputFieldVal2){
+                inputFieldVal1 = inputField.value;
+                inputFieldVal2 = Number(inputField2.value);
+
+
+                let in1;
+                let in2;
+
+                let message;
+                let answer;
+                
+                if((!Number(isNaN(inputFieldVal1)) || inputFieldVal1 === "") || (isNaN(inputFieldVal2) || inputFieldVal2 === "" || inputFieldVal2 <= 1 || inputFieldVal2 > 15 )){
+                    message = " Enter a symbol & a number/ Complete the fields"
+                    resultSpan.textContent = "\t"+ message;
+                } else {
+                    let x;
+                    let y;
+
+                    in1 = inputFieldVal1;
+                    in2 = inputFieldVal2;
+
+                    let cont = '<ul style=list-style-type: "none";>'
+                    let text ="<span></span>";
+
+                    for(x=1; x <=in2; x++) { 
+                        for (y=1; y < x; y++) {
+                        }; 
+                        text =  text + "<span>" + in1 +"</span>"; 
+                        cont = cont + "<li >" + text + "</li>";
+                        };
+                        cont = cont + "</ul>";
+                        resultSpan.innerHTML = cont;
+
+                    // answer =  string_reverse(in1);
+
+                }
+             }
+    
+
+            function enterFunction(event) {
+                if (event.which === 13) {
+                    submitBtn.click();
+                }
+            }
+        </script>
+
+
+</body>
+</html>
