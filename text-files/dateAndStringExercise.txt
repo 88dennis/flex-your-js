@@ -1,0 +1,18 @@
+var d = new Date();
+console.log(d.toDateString())
+
+remDaysTilBday("January 27, 2021");
+
+function remDaysTilBday(bday) {
+
+let bDateMs = Date.parse(bday);
+let dateNowMs = Date.parse(new Date());
+let diffMsTilBday = (bDateMs - dateNowMs);
+
+let remDaysTilBday =  Math.round(diffMsTilBday * (1/1000) * (1/60) * (1/60) * (1/24));
+    console.log(remDaysTilBday);
+    return remDaysTilBday
+}
+
+let str = new String("Jose lived in San Jose for many years");
+console.log(str.lastIndexOf("Jose"));
