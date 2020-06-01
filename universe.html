@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+
+    <title>UNIVERSE</title>
+</head>
+
+<body>
+    <br>
+    <br>
+    <div style = "text-align: center">
+        <h1>Our Universe</h1>
+    </div>
+<br>
+    <div style = "display: flex; justify-content: center">
+    <div>
+        <p>Please select your planet:</p>
+        <input type="radio" id="earth" name="planet" value="https://i.imgur.com/eIgZfQf.png">
+        <label for="earth">Earth</label><br>
+
+        <input type="radio" id="jupiter" name="planet" value="https://i.imgur.com/94X7n4z.png">
+        <label for="jupiter">Jupiter</label><br>
+
+        <input type="radio" id="mars" name="planet" value="https://i.imgur.com/b5ocLTG.png">
+        <label for="mars">Mars</label><br>
+
+        <input type="radio" id="mercury" name="planet" value="https://i.imgur.com/ynGyZq3.png">
+        <label for="mercury">mercury</label><br>
+
+        <input type="radio" id="saturn" name="planet" value="https://i.imgur.com/33PRuLN.png">
+        <label for="saturn">saturn</label><br>
+
+        <input type="radio" id="uranus" name="planet" value="https://i.imgur.com/A0JBQF4.png">
+        <label for="uranus">uranus</label><br>
+
+        <input type="radio" id="venus" name="planet" value="https://i.imgur.com/YUq4GfC.png">
+        <label for="venus">venus</label><br>
+
+        <input type="radio" id="neptune" name="planet" value="https://i.imgur.com/HtDYqPd.png">
+        <label for="neptune">neptune</label><br>
+    </div>
+</div>
+<br>
+    <div style = "text-align: center">
+        <img id="imgId" src="https://i.imgur.com/eIgZfQf.png" />
+    </div>
+    <br>
+    <div style = "text-align: center">
+            <a href="index.html">Back to Home Page</a>
+          </div>
+
+    <script>
+        let radioSelect = document.getElementsByTagName("input");
+        for (let i = 0; i < radioSelect.length; i++) {
+            console.log(radioSelect[i])
+            radioSelect[i].addEventListener("click", function () {
+                console.log(radioSelect[i].value)
+                document.getElementById("imgId").src = radioSelect[i].value;
+            });
+        }
+    </script>
+
+
+
+</body>
+
+</html>
