@@ -24,6 +24,65 @@ function animate(whichone) {
     window.setTimeout("animate(" + (whichone + 1) +"); ", 500);
 }
 
+var obj = {
+    firstName: "dennis",
+    lastName: "sarms"
+};
+
+console.log(obj);
+document.write(JSON.stringify(obj))
+
+
+var obj1 = {};
+obj1.firstName = "dennis";
+obj1.lastName = "Sarms";
+
+console.log(obj1);
+document.write(JSON.stringify(obj1))
+
+var obj2 = {};
+obj2["firstName"] = "dennis";
+obj2["lastName"] = "Sarms";
+console.log(obj2);
+document.write(JSON.stringify(obj2));
+
+
+var obj3 = {};
+Object.defineProperty(obj3, "firstName", {
+    value: "dennis"
+});
+
+
+console.log(obj3);
+document.write(JSON.stringify(obj3.firstName));
+
+
+var obj4 = {};
+Object.defineProperties(obj4, {
+    "firstName" : {
+        "value": "hello"
+    },
+    
+    "lastName" : {
+        "value": "world"
+    }
+    
+});
+
+
+const person = {
+  isHuman: false,
+  printIntroduction: function() {
+    console.log(`My name is ${this.name}. Am I human? ${this.isHuman}`);
+  }
+};
+
+const me = Object.create(person);
+
+me.name = 'Matthew'; // "name" is a property set on "me", but not on "person"
+me.isHuman = true; // inherited properties can be overwritten
+
+me.printIntroduction();
 // window.onload = function() {
 //     pics 
 // }

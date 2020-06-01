@@ -724,18 +724,18 @@
         //Write a JavaScript function to find an array contains a specific element. Test data:
 
 
-        let arr = [2, 5, 9, 6];
+        let arr30 = [2, 5, 9, 6];
 
         function contains(arr, element) {
-            for (var i = 0; i < arr.length; i++) {
-                if (arr[i] === element) {
+            for (var i = 0; i < arr30.length; i++) {
+                if (arr30[i] === element) {
                     return true;
                 }
             }
             return false;
         }
-        arr = [2, 5, 9, 6];
-        console.log(contains(arr, 5));
+        arr30 = [2, 5, 9, 6];
+        console.log(contains(arr30, 5));
 
 
         //Write a JavaScript function to create a specified number of elements and pre-filled string value array. 
@@ -753,9 +753,9 @@
 
         //Write a JavaScript function to filter false, null, 0 and blank values from an array. Test Data :console.log(filter_array_values([58, '', 'abcd', true, null, false, 0])); [58, "abcd", true] 
 
-        function filter_array_values(arr) {
-            arr = arr.filter(isEligible);
-            return arr;
+        function filter_array_values(arr35) {
+            arr35 = arr35.filter(isEligible);
+            return arr35;
         }
 
         function isEligible(value) {
@@ -767,9 +767,9 @@
 
 
 
-        function filter_array_values(arr) {
-            arr = arr.filter(isEligible);
-            return arr;
+        function filter_array_values(arr36) {
+            arr36 = arr36.filter(isEligible);
+            return arr36;
         }
 
         function isEligible(value) {
@@ -1195,9 +1195,9 @@
                 heap_root(input, 0);
             }
         }
-        var arr = [3, 0, 2, 5, -1, 4, 1];
-        heapSort(arr);
-        console.log(arr);
+        var arr40 = [3, 0, 2, 5, -1, 4, 1];
+        heapSort(arr40);
+        console.log(arr40);
 
         //  Write a JavaScript program to sort a list of elements using Insertion sort. 
 
@@ -1220,23 +1220,23 @@
         ]));
 
         //Write a JavaScript program to sort a list of elements using Bubble sort. 
-        function swap(arr, first_Index, second_Index) {
-            var temp = arr[first_Index];
-            arr[first_Index] = arr[second_Index];
-            arr[second_Index] = temp;
+        function swap(arr50, first_Index, second_Index) {
+            var temp = arr50[first_Index];
+            arr50[first_Index] = arr50[second_Index];
+            arr50[second_Index] = temp;
         }
 
-        function bubble_Sort(arr) {
-            var len = arr.length,
+        function bubble_Sort(arr50) {
+            var len = arr50.length,
                 i, j, stop;
             for (i = 0; i < len; i++) {
                 for (j = 0, stop = len - i; j < stop; j++) {
-                    if (arr[j] > arr[j + 1]) {
-                        swap(arr, j, j + 1);
+                    if (arr50[j] > arr50[j + 1]) {
+                        swap(arr50, j, j + 1);
                     }
                 }
             }
-            return arr;
+            return arr50;
         }
         console.log(bubble_Sort([3, 0, 2, 5, -1, 4, 1]));
 
