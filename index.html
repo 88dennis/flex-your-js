@@ -1,267 +1,313 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>JS Exercise 2.0</title>
 
-    <style>
-      * {
-        font-family: 'Lato', sans-serif;
-      }
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JS Exercise 2.0</title>
+
+  <style>
+    * {
+      font-family: 'Lato', sans-serif;
+    }
+
     body {
 
-  color: #2c3e50;
-  background: #ecf0f1;
-  padding: 0 1em 1em;
-}
+      color: #2c3e50;
+      background: #ecf0f1;
+      padding: 0 1em 1em;
+    }
 
-a {
-  text-decoration: none;
-}
+    a {
+      text-decoration: none;
+    }
 
-a {   
-    color: black;   
-}
+    a {
+      color: black;
+    }
 
-a:focus {
-  outline: none !important;
-  color: steelblue;
-}
-a[tabindex]:focus {
-    color:blue;
-    outline: none;
-}
+    a:focus {
+      outline: none !important;
+      color: steelblue;
+    }
 
-a::after {
-  color: darkgray;
-}
+    a[tabindex]:focus {
+      color: blue;
+      outline: none;
+    }
 
-h1 {
-  margin: 0;
-  line-height: 2;
-  text-align: center;
-}
-h2 {
-  margin: 0 0 0.5em;
-  font-weight: normal;
-}
-input {
-  position: absolute;
-  opacity: 0;
-  z-index: -1;
-}
-.row {
-  display: flex;
-}
-.row .col {
-  flex: 1;
-}
-.row .col:last-child {
-  margin-left: 1em;
-}
-/* Accordion styles */
-.tabs {
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
-}
-.tab {
-  width: 100%;
-  color: white;
-  overflow: hidden;
-}
-.tab-label {
-  display: flex;
-  justify-content: space-between;
-  padding: 1em;
-  background: #2c3e50;
-  font-weight: bold;
-  cursor: pointer;
-  /* Icon */
-}
-.tab-label:hover {
-  background: #1a252f;
-}
-.tab-label::after {
-  content: "\276F";
-  width: 1em;
-  height: 1em;
-  text-align: center;
-  transition: all 0.35s;
-}
-.tab-content {
-  max-height: 0;
-  padding: 0 1em;
-  color: #2c3e50;
-  background: white;
-  transition: all 0.35s;
-}
-.tab-close {
-  display: flex;
-  justify-content: flex-end;
-  padding: 1em;
-  font-size: 0.75em;
-  background: #2c3e50;
-  cursor: pointer;
-}
-.tab-close:hover {
-  background: #1a252f;
-}
-input:checked + .tab-label {
-  background: #1a252f;
-}
-input:checked + .tab-label::after {
-  transform: rotate(90deg);
-}
-input:checked ~ .tab-content {
-  max-height: 100vh;
-  padding: 1em;
-}
+    a::after {
+      color: darkgray;
+    }
 
-    </style>
+    h1 {
+      margin: 0;
+      line-height: 2;
+      text-align: center;
+    }
+
+    h2 {
+      margin: 0 0 0.5em;
+      font-weight: normal;
+    }
+
+    input {
+      position: absolute;
+      opacity: 0;
+      z-index: -1;
+    }
+
+    .row {
+      display: flex;
+    }
+
+    .row .col {
+      flex: 1;
+    }
+
+    .row .col:last-child {
+      margin-left: 1em;
+    }
+
+    /* Accordion styles */
+    .tabs {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
+    }
+
+    .tab {
+      width: 100%;
+      color: white;
+      overflow: hidden;
+    }
+
+    .tab-label {
+      display: flex;
+      justify-content: space-between;
+      padding: 1em;
+      background: #2c3e50;
+      font-weight: bold;
+      cursor: pointer;
+      /* Icon */
+    }
+
+    .tab-label:hover {
+      background: #1a252f;
+    }
+
+    .tab-label::after {
+      content: "\276F";
+      width: 1em;
+      height: 1em;
+      text-align: center;
+      transition: all 0.35s;
+    }
+
+    .tab-content {
+      max-height: 0;
+      padding: 0 1em;
+      color: #2c3e50;
+      background: white;
+      transition: all 0.35s;
+    }
+
+    .tab-close {
+      display: flex;
+      justify-content: flex-end;
+      padding: 1em;
+      font-size: 0.75em;
+      background: #2c3e50;
+      cursor: pointer;
+    }
+
+    .tab-close:hover {
+      background: #1a252f;
+    }
+
+    input:checked+.tab-label {
+      background: #1a252f;
+    }
+
+    input:checked+.tab-label::after {
+      transform: rotate(90deg);
+    }
+
+    input:checked~.tab-content {
+      max-height: 100vh;
+      padding: 1em;
+    }
+  </style>
 </head>
+
 <body>
-    <h1> EXERCISES <sup>2.0</sup></h1>
-<div class="row">
-  <div class="col">
-    <div class="tabs">
-      
+  <h1> EXERCISES <sup>2.0</sup></h1>
+  <div class="row">
+    <div class="col">
+      <div class="tabs">
 
-      <div class="tab">
-        <input type="checkbox" id="chck11">
-        <label class="tab-label" for="chck11">Use Case 3.1: Find the sign of product of three numbers</label>
-        <div class="tab-content">
-         <a href="D3UseCase01GetSign.html">JavaScript conditional statement to find the sign of product of three numbers.
-          Display an alert box with the specified sign.</a>
-        </div>
-      </div>
-
-      <div class="tab">
-        <input type="checkbox" id="chck12">
-        <label class="tab-label" for="chck12">Use Case 3.2: Greatest common divisor (GCD)</label>
-        <div class="tab-content">
-         <a href="D3UseCase02GetGCD.html">JavaScript program to compute the greatest common divisor (GCD) of two positive integers.</a>
-        </div>
-      </div>
-
-      <div class="tab">
-        <input type="checkbox" id="chck13">
-        <label class="tab-label" for="chck13">Use Case 3.3: Ladder Pattern</label>
-        <div class="tab-content">
-         <a href="D3UseCase03LadderPattern.html">JavaScript program to construct a Ladder pattern, using a nested for loop.. Enter a single character below</a>
-        </div>
-      </div>
-
-
-<div class="tab">
-  <input type="checkbox" id="chck14">
-  <label class="tab-label" for="chck14">Use Case 3.4: Get your Happy Numbers</label>
-  <div class="tab-content">
-   <a href="D3UseCase04HappyNumber.html">"Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1. Those numbers for which this process ends in 1 are happy numbers, while those that do not end in 1 are unhappy numbers (or sad numbers)". Write a JavaScript program to find and print the first 5 happy numbers. </a>
-  </div>
-</div>
-
-<div class="tab">
-  <input type="checkbox" id="chck15">
-  <label class="tab-label" for="chck15">Use Case 3.5: Fizz Buzz</label>
-  <div class="tab-content">
-   <a href="D3UseCase05FizzBuzz.html"> JavaScript program which iterates the integers from 1 to 100. But for multiples of three print "Fizz" instead of the number and for the multiples of five print "Buzz". For numbers which are multiples of both three and five print "FizzBuzz" </a>
-  </div>
-</div>
-
-
-<div class="tab">
-  <input type="checkbox" id="chck16">
-  <label class="tab-label" for="chck16">Use Case 3.6: Odd Even</label>
-  <div class="tab-content">
-   <a href="D3UseCase06OddEven.html"> JavaScript for loop that will iterate to a number between 0 to 100. For each iteration, it will check if the current number is odd or even, and display a message to the screen. </a>
-  </div>
-</div>
-      <div class="tab">
-        <input type="checkbox" id="chck1">
-        <label class="tab-label" for="chck1">Angle Type Checker</label>
-        <div class="tab-content">
-         <a href="angleType.html">Write a JavaScript program to find the types of a given angle</a>
-        </div>
-      </div>
-
-      <div class="tab">
-        <input type="checkbox" id="chck2">
-        <label class="tab-label" for="chck2">Get Triangle Area given all three sides</label>
-        <div class="tab-content">
-          <a href="areaTriangle.html">Please enter the value of three sides to calculate the area</a>
-          </div>
-      </div>
-
-      <div class="tab">
-          <input type="checkbox" id="chck3">
-          <label class="tab-label" for="chck3">Get Triangle Area given all three sides</label>
+        <div class="tab">
+          <input type="checkbox" id="chck17">
+          <label class="tab-label" for="chck17">Other Javascript Use Cases</label>
           <div class="tab-content">
-            <a href="checkGradeMarksRange.html">JavaScript program to check the total marks of a student in various examinations</a>
-            </div>
+            <a href="otherUseCases.html">Javascrip Collection of Use Cases</a>
+          </div>
         </div>
 
         <div class="tab">
-            <input type="checkbox" id="chck4">
-            <label class="tab-label" for="chck4">Range Checker Three Integers</label>
-            <div class="tab-content">
-              <a href="checkRangeThree.html">JavaScript program to check whether three given integer values are in the range 50..99 (inclusive). Return true if one or more of them are in the said range.</a>
-              </div>
+          <input type="checkbox" id="chck11">
+          <label class="tab-label" for="chck11">Use Case 3.1: Find the sign of product of three numbers</label>
+          <div class="tab-content">
+            <a href="D3UseCase01GetSign.html">JavaScript conditional statement to find the sign of product of three
+              numbers.
+              Display an alert box with the specified sign.</a>
+          </div>
+        </div>
+
+        <div class="tab">
+          <input type="checkbox" id="chck12">
+          <label class="tab-label" for="chck12">Use Case 3.2: Greatest common divisor (GCD)</label>
+          <div class="tab-content">
+            <a href="D3UseCase02GetGCD.html">JavaScript program to compute the greatest common divisor (GCD) of two
+              positive integers.</a>
+          </div>
+        </div>
+
+        <div class="tab">
+          <input type="checkbox" id="chck13">
+          <label class="tab-label" for="chck13">Use Case 3.3: Ladder Pattern</label>
+          <div class="tab-content">
+            <a href="D3UseCase03LadderPattern.html">JavaScript program to construct a Ladder pattern, using a nested for
+              loop.. Enter a single character below</a>
+          </div>
+        </div>
+
+
+        <div class="tab">
+          <input type="checkbox" id="chck14">
+          <label class="tab-label" for="chck14">Use Case 3.4: Get your Happy Numbers</label>
+          <div class="tab-content">
+            <a href="D3UseCase04HappyNumber.html">"Starting with any positive integer, replace the number by the sum of
+              the squares of its digits, and repeat the process until the number equals 1 (where it will stay), or it
+              loops endlessly in a cycle which does not include 1. Those numbers for which this process ends in 1 are
+              happy numbers, while those that do not end in 1 are unhappy numbers (or sad numbers)". Write a JavaScript
+              program to find and print the first 5 happy numbers. </a>
+          </div>
+        </div>
+
+        <div class="tab">
+          <input type="checkbox" id="chck15">
+          <label class="tab-label" for="chck15">Use Case 3.5: Fizz Buzz</label>
+          <div class="tab-content">
+            <a href="D3UseCase05FizzBuzz.html"> JavaScript program which iterates the integers from 1 to 100. But for
+              multiples of three print "Fizz" instead of the number and for the multiples of five print "Buzz". For
+              numbers which are multiples of both three and five print "FizzBuzz" </a>
+          </div>
+        </div>
+
+        <div class="tab">
+          <input type="checkbox" id="chck16">
+          <label class="tab-label" for="chck16">Use Case 3.5: Fizz Buzz</label>
+          <div class="tab-content">
+            <a href="D3UseCase06OddEven.html"> JavaScript for loop that will iterate to a number between 0 to 100. For
+              each iteration, it will check if the current number is odd or even, and display a message to the
+              screen.</a>
+          </div>
+        </div>
+
+        <div class="tab">
+          <input type="checkbox" id="chck1">
+          <label class="tab-label" for="chck1">Angle Type Checker</label>
+          <div class="tab-content">
+            <a href="angleType.html">Write a JavaScript program to find the types of a given angle</a>
+          </div>
+        </div>
+
+        <div class="tab">
+          <input type="checkbox" id="chck2">
+          <label class="tab-label" for="chck2">Get Triangle Area given all three sides</label>
+          <div class="tab-content">
+            <a href="areaTriangle.html">Please enter the value of three sides to calculate the area</a>
+          </div>
+        </div>
+
+        <div class="tab">
+          <input type="checkbox" id="chck3">
+          <label class="tab-label" for="chck3">Get Triangle Area given all three sides</label>
+          <div class="tab-content">
+            <a href="checkGradeMarksRange.html">JavaScript program to check the total marks of a student in various
+              examinations</a>
+          </div>
+        </div>
+
+        <div class="tab">
+          <input type="checkbox" id="chck4">
+          <label class="tab-label" for="chck4">Range Checker Three Integers</label>
+          <div class="tab-content">
+            <a href="checkRangeThree.html">JavaScript program to check whether three given integer values are in the
+              range 50..99 (inclusive). Return true if one or more of them are in the said range.</a>
+          </div>
+        </div>
+
+        <div class="tab">
+          <input type="checkbox" id="chck5">
+          <label class="tab-label" for="chck5">Range Checker Two Integers</label>
+          <div class="tab-content">
+            <a href="checkRangeTwo.html">Check whether two numbers are in range 40..60 or in the range 70..100
+              inclusive</a>
+          </div>
+        </div>
+
+        <div class="tab">
+          <input type="checkbox" id="chck6">
+          <label class="tab-label" for="chck6">Number 13</label>
+          <div class="tab-content">
+            <a href="numberThirteen.html">The difference between a given number and 13, if the number is greater than 13
+              it will return double the absolute difference.</a>
+          </div>
+        </div>
+
+        <div class="tab">
+          <input type="checkbox" id="chck7">
+          <label class="tab-label" for="chck7">Divide a number Return a String</label>
+          <div class="tab-content">
+            <a href="numberToString.html">JavaScript program to divide two positive numbers and return a string with
+              properly formatted commas.</a>
+          </div>
+          <div class="tab-content">
           </div>
 
+
+
           <div class="tab">
-              <input type="checkbox" id="chck5">
-              <label class="tab-label" for="chck5">Range Checker Two Integers</label>
-              <div class="tab-content">
-                <a href="checkRangeTwo.html">Check whether two numbers are in range 40..60 or in the range 70..100 inclusive</a>
-                </div>
+            <input type="checkbox" id="chck8">
+            <label class="tab-label" for="chck8">Reverse a Word</label>
+            <div class="tab-content">
+              <a href="reverseString.html">JavaScript program to reverse a given string.</a>
             </div>
+          </div>
+          <div class="tab">
+            <input type="checkbox" id="chck9">
+            <label class="tab-label" for="chck9">Celcius To Farenheit and Farenheit to Celcius</label>
+            <div class="tab-content">
+              <a href="temperatureConverter.html">Celcius To Farenheit and Farenheit to Celcius</a>
+            </div>
+          </div>
+          <div class="tab">
+            <input type="checkbox" id="chck10">
+            <label class="tab-label" for="chck10">Convert Number to Hours : Mins</label>
+            <div class="tab-content">
 
-            <div class="tab">
-                <input type="checkbox" id="chck6">
-                <label class="tab-label" for="chck6">Number 13</label>
-                <div class="tab-content">
-                  <a href="numberThirteen.html">The difference between a given number and 13, if the number is greater than 13 it will return double the absolute difference.</a>
-                  </div>
-              </div>
-
-              <div class="tab">
-                  <input type="checkbox" id="chck7">
-                  <label class="tab-label" for="chck7">Divide a number Return a String</label>
-                  <div class="tab-content">
-                    <a href="numberToString.html">JavaScript program to divide two positive numbers and return a string with properly formatted commas.</a>
-                    </div>
-                </div>
+              <a href="timeConverter.html">JavaScript program to convert a given number to hours and minutes.</a>
+            </div>
+          </div>
 
 
-
-                <div class="tab">
-                    <input type="checkbox" id="chck8">
-                    <label class="tab-label" for="chck8">Reverse a Word</label>
-                    <div class="tab-content">
-                      <a href="reverseString.html">JavaScript program to reverse a given string.</a>
-                      </div>
-                  </div>
-                  <div class="tab">
-                      <input type="checkbox" id="chck9">
-                      <label class="tab-label" for="chck9">Celcius To Farenheit and Farenheit to Celcius</label>
-                      <div class="tab-content">
-                        <a href="temperatureConverter.html">Celcius To Farenheit and Farenheit to Celcius</a>
-                        </div>
-                    </div>
-                    <div class="tab">
-                        <input type="checkbox" id="chck10">
-                        <label class="tab-label" for="chck10">Convert Number to Hours : Mins</label>
-                        <div class="tab-content">
-                  
-                          <a href="timeConverter.html">JavaScript program to convert a given number to hours and minutes.</a>
-                          </div>
-                      </div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 </body>
+
 </html>

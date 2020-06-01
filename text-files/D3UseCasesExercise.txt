@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Other Use Cases</title>
+</head>
+
+<body>
+    <h1>JAVASCRIPT USE CASES</h1>
+
+    <script>
+        let b1 = "<br/>";
+        let b2 = "<br/><br/>";
+        let division = "============================="
+
+        // Write a JavaScript function to convert an object into a list of '[key, value]' pairs. 
+
+        document.write("Write a JavaScript function to convert an object into a list of '[key, value]' pairs.");
+        document.write(b2);
+
+        document.write(
+            "function key_value_pairs(obj) { var keys = _keys(obj); var length = keys.length;  var pairs = Array(length); for (var i = 0; i < length; i++) { pairs[i] = [keys[i], obj[keys[i]]]; } return pairs;} function _keys(obj) {if (!isObject(obj)) return []; if (Object.keys) return Object.keys(obj); var keys = []; for (var key in obj) if (_.has(obj, key)) keys.push(key); return keys;}function isObject(obj) { var type = typeof obj; return type === 'function' || type === 'object' && !!obj;}"
+        );
+        document.write(b1);
+
+        function key_value_pairs(obj) {
+            var keys = _keys(obj);
+            var length = keys.length;
+            var pairs = Array(length);
+            for (var i = 0; i < length; i++) {
+                pairs[i] = [keys[i], obj[keys[i]]];
+            }
+            return pairs;
+        }
+
+        function _keys(obj) {
+            if (!isObject(obj)) return [];
+            if (Object.keys) return Object.keys(obj);
+            var keys = [];
+            for (var key in obj)
+                if (_.has(obj, key)) keys.push(key);
+            return keys;
+        }
+
+        function isObject(obj) {
+            var type = typeof obj;
+            return type === 'function' || type === 'object' && !!obj;
+        }
+        document.write(b2);
+        document.write('key_value_pairs({red: "#FF0000", green: "#00FF00", white: "#FFFFFF"})')
+        document.write(b2);
+        document.write("RESULT: " + key_value_pairs({
+            red: "#FF0000",
+            green: "#00FF00",
+            white: "#FFFFFF"
+        }));
+        document.write(b2);
+        document.write(division);
+        document.write(b2);
+
+        document.write("Write a JavaScript function to retrieve all the values of an object's properties. ");
+        document.write(b2);
+
+        document.write(
+            "function all_values(obj) { var keys = _keys(obj); var length = keys.length; var values = Array(length); for (var i = 0; i < length; i++) { values[i] = obj[keys[i]]; } return values; } function _keys(obj) { if (!isObject(obj)) return []; if (Object.keys) return Object.keys(obj); var keys = []; for (var key in obj) if (_.has(obj, key)) keys.push(key); return keys; } function isObject(obj) { var type = typeof obj; return type === 'function' || type === 'object' && !!obj; }"
+        );
+        document.write(b2);
+
+        document.write("all_values({red: '#FF0000', green: '#00FF00', white: '#FFFFFF'}));");
+        document.write(b2);
+
+        function all_values(obj) {
+            var keys = _keys(obj);
+            var length = keys.length;
+            var values = Array(length);
+            for (var i = 0; i < length; i++) {
+                values[i] = obj[keys[i]];
+            }
+            return values;
+        }
+
+        function _keys(obj) {
+            if (!isObject(obj)) {
+                return [];
+            }
+            if (Object.keys) {
+                return Object.keys(obj);
+            }
+            var keys = [];
+            for (var key in obj) {
+
+            }
+            if (_.has(obj, key)) {
+                keys.push(key);
+                return keys;
+            }
+        }
+
+        function isObject(obj) {
+            var type = typeof obj;
+            return type === 'function' || type === 'object' && !!obj;
+        }
+
+        document.write("RESULT: " + all_values({
+            red: "#FF0000",
+            green: "#00FF00",
+            white: "#FFFFFF"
+        }));
+
+        document.write(b2);
+        document.write(division);
+        document.write(b2);
+
+
+        // Write a JavaScript function to parse an URL. Sample Solution: - 
+        document.write("Write a JavaScript function to parse an URL. Sample Solution: - ");
+        document.write(b2);
+
+        document.write(
+            "function parse_URL(url) { var a = document.createElement('a'); a.href = url; return { source: url, protocol: a.protocol.replace(':', ''), host: a.hostname, port: a.port, query: a.search, params: (function () { var ret = {}, seg = a.search.replace(/^\?/, '').split('&'), len = seg.length, i = 0, s; for (; i < len; i++) { if (!seg[i]) { continue; } s = seg[i].split('='); ret[s[0]] = s[1]; } return ret; })(), file: (a.pathname.match(/\/([^\/?#]+)$/i) || [, ''])[1], hash: a.hash.replace('#', ''), path: a.pathname.replace(/^([^\/])/, '/$1'), relative: (a.href.match(/tps?:\/\/[^\/]+(.+)/) || [, ''])[1], segments: a.pathname.replace(/^\//, '').split('/') }; }"
+        );
+        document.write(b2);
+
+        function parse_URL(url) {
+            var a = document.createElement('a');
+            a.href = url;
+            return {
+                source: url,
+                protocol: a.protocol.replace(':', ''),
+                host: a.hostname,
+                port: a.port,
+                query: a.search,
+                params: (function () {
+                    var ret = {},
+                        seg = a.search.replace(/^\?/, '').split('&'),
+                        len = seg.length,
+                        i = 0,
+                        s;
+                    for (; i < len; i++) {
+                        if (!seg[i]) {
+                            continue;
+                        }
+                        s = seg[i].split('=');
+                        ret[s[0]] = s[1];
+                    }
+                    return ret;
+                })(),
+                file: (a.pathname.match(/\/([^\/?#]+)$/i) || [, ''])[1],
+                hash: a.hash.replace('#', ''),
+                path: a.pathname.replace(/^([^\/])/, '/$1'),
+                relative: (a.href.match(/tps?:\/\/[^\/]+(.+)/) || [, ''])[1],
+                segments: a.pathname.replace(/^\//, '').split('/')
+            };
+        }
+
+        document.write("parse_URL('https://github.com/pubnub/python/search?utf8=% E2%9C%93&q=python')");
+
+
+        let result = parse_URL('https://github.com/pubnub/python/search?utf8=% E2%9C%93&q=python');
+        document.write(b2);
+
+        document.write("RESULT " + JSON.stringify(result));
+        document.write(b2);
+        document.write(division);
+        document.write(b2);
+
+        //Write a JavaScript program to sort an array of JavaScript objects. 
+
+        document.write("Write a JavaScript program to sort an array of JavaScript objects.");
+        document.write(b2);
+        document.write(
+            "var library = [ { title: 'Bill Gates', author: 'The Road Ahead', libraryID: 1254 }, { title: 'Steve Jobs', author: 'Walter Isaacson', libraryID: 4264 }, { title: 'Mockingjay: The Final Book of The Hunger Games', author: 'Suzanne Collins', libraryID: 3245 }]; var sort_by = function(field_name, reverse, initial){ var key = initial ? function(x) { return initial(x[field_name]); } : function(x) { return x[field_name]; }; reverse = !reverse ? 1 : -1; return function (x, y) { return x = key(x), y = key(y), reverse * ((x > y) - (y > x)); } ; }; var newobj = library.sort(sort_by('libraryID', true, parseInt)); console.log(newobj); "
+        );
+        document.write(b2);
+
+
+        var library = [{
+                title: 'Bill Gates',
+                author: 'The Road Ahead',
+                libraryID: 1254
+            },
+            {
+                title: 'Steve Jobs',
+                author: 'Walter Isaacson',
+                libraryID: 4264
+            },
+            {
+                title: 'Mockingjay: The Final Book of The Hunger Games',
+                author: 'Suzanne Collins',
+                libraryID: 3245
+            }
+        ];
+        var sort_by = function (field_name, reverse, initial) {
+            var key = initial ? function (x) {
+                return initial(x[field_name]);
+            } : function (x) {
+                return x[field_name];
+            };
+            reverse = !reverse ? 1 : -1;
+            return function (x, y) {
+                return x = key(x), y = key(y), reverse * ((x > y) - (y > x));
+            };
+        };
+        document.write(" var newobj = library.sort(sort_by('libraryID', true, parseInt));");
+        document.write(b2);
+        var newobj = library.sort(sort_by('libraryID', true, parseInt));
+
+        document.write("RESULT: " + JSON.stringify(newobj));
+        document.write(b2);
+        document.write(division);
+
+
+        //Write a JavaScript program to create a Clock. Note: The output will come every second. Expected Console Output: 14:37:42";
+
+        function my_Clock() {
+            this.cur_date = new Date();
+            this.hours = this.cur_date.getHours();
+            this.minutes = this.cur_date.getMinutes();
+            this.seconds = this.cur_date.getSeconds();
+        }
+        my_Clock.prototype.run = function () {
+            setInterval(this.update.bind(this), 1000);
+        };
+        my_Clock.prototype.update = function () {
+            this.updateTime(1);
+            console.log(this.hours + ":" + this.minutes + ":" + this.seconds);
+        };
+        my_Clock.prototype.updateTime = function (secs) {
+            this.seconds += secs;
+            if (this.seconds >= 60) {
+                this.minutes++;
+                this.seconds = 0;
+            }
+            if (this.minutes >= 60) {
+                this.hours++;
+                this.minutes = 0;
+            }
+            if (this.hours >= 24) {
+                this.hours = 0;
+            }
+        };
+        // var clock = new my_Clock(); clock.run(); 
+
+
+        //Write a Bubble Sort algorithm in JavaScript. Note: Bubble sort is a simple sorting algorithm that works by repeatedly stepping through the list to be sorted, Sample Data: [6,4,0, 3,-2,1];
+
+        document.write(b2);
+        document.write(
+            "Write a Bubble Sort algorithm in JavaScript. Note: Bubble sort is a simple sorting algorithm that works by repeatedly stepping through the list to be sorted, Sample Data: [6,4,0, 3,-2,1];"
+        )
+        document.write(b2);
+
+
+        document.write(
+            "Array.prototype.bubbleSort_algo = function() { var is_sorted = false; while (!is_sorted) { is_sorted = true; for (var n = 0; n < this.length - 1; n++) { if (this[n] > this[n+1]){ var x = this[n+1]; this[n+1] = this[n]; this[n] = x; is_sorted = false;  } } } return this; }; console.log([6,4,0, 3,-2,1].bubbleSort_algo());"
+        )
+        document.write(b2);
+
+
+        Array.prototype.bubbleSort_algo = function () {
+            var is_sorted = false;
+            while (!is_sorted) {
+                is_sorted = true;
+                for (var n = 0; n < this.length - 1; n++) {
+                    if (this[n] > this[n + 1]) {
+                        var x = this[n + 1];
+                        this[n + 1] = this[n];
+                        this[n] = x;
+                        is_sorted = false;
+                    }
+                }
+            }
+            return this;
+        };
+
+        document.write("RESULT: " + [6, 4, 0, 3, -2, 1].bubbleSort_algo());
+
+        document.write(b2);
+        document.write(division);
+
+        // Write a JavaScript program to display the reading status (i.e. display book name, author name and reading status) of the following books. 
+
+        document.write(b2);
+
+        document.write(
+            "Write a JavaScript program to display the reading status (i.e. display book name, author name and reading status) of the following books. "
+        );
+
+        document.write(b2);
+
+        document.write(
+            "var library = [ { title: 'Bill Gates', author: 'The Road Ahead', readingStatus: true }, { title: 'Steve Jobs', author: 'Walter Isaacson', readingStatus: true }, { title: 'Mockingjay: The Final Book of The Hunger Games', author: 'Suzanne Collins', readingStatus: false }]; for (var i = 0; i < library.length; i++) { var book = '\'' + library[i].title + '\'' + ' by ' + library[i].author + '.'; if (library[i].readingStatus) { console.log('Already read ' + book); } else { console.log('You still need to read ' + book); } }"
+        );
+        document.write(b2);
+
+        var library = [{
+                title: 'Bill Gates',
+                author: 'The Road Ahead',
+                readingStatus: true
+            },
+            {
+                title: 'Steve Jobs',
+                author: 'Walter Isaacson',
+                readingStatus: true
+            },
+            {
+                title: 'Mockingjay: The Final Book of The Hunger Games',
+                author: 'Suzanne Collins',
+                readingStatus: false
+            }
+        ];
+        for (var i = 0; i < library.length; i++) {
+            var book = "'" + library[i].title + "'" + ' by ' + library[i].author + ".";
+            if (library[i].readingStatus) {
+                document.write(b2);
+                document.write("Already read " + book);
+            } else {
+                document.write(b2);
+                document.write("You still need to read " + book);
+            }
+        }
+        document.write(b2);
+        document.write(division);
+        document.write(b2);
+
+        //Write a JavaScript function to get a copy of the object where the keys have become the values and the values the keys. 
+        document.write(
+            "Write a JavaScript function to get a copy of the object where the keys have become the values and the values the keys."
+        )
+        document.write(b2);
+
+        document.write(
+            "function invert_key_value(obj) { var result = {}; var keys = _keys(obj); for (var i = 0, length = keys.length; i < length; i++) { result[obj[keys[i]]] = keys[i]; } return result; } function _keys(obj) { if (!isObject(obj)) return []; if (Object.keys) return Object.keys(obj); var keys = []; for (var key in obj) if (_.has(obj, key)) keys.push(key); return keys; } function isObject(obj) { var type = typeof obj; return type === 'function' || type === 'object' && !!obj; } console.log(invert_key_value({red: '#FF0000', green: '#00FF00', white: '#FFFFFF'})); "
+        );
+        document.write(b2);
+
+        function invert_key_value(obj) {
+            var result = {};
+            var keys = _keys(obj);
+            for (var i = 0, length = keys.length; i < length; i++) {
+                result[obj[keys[i]]] = keys[i];
+            }
+            return result;
+        }
+
+        function _keys(obj) {
+            if (!isObject(obj)) return [];
+            if (Object.keys) return Object.keys(obj);
+            var keys = [];
+
+            for (var key in obj) {
+                if (_.has(obj, key)) {
+                    keys.push(key);
+                    return keys;
+
+                }
+            }
+        }
+
+        function isObject(obj) {
+            var type = typeof obj;
+            return type === 'function' || type === 'object' && !!obj;
+        }
+
+        let resultObj = invert_key_value({
+            red: "#FF0000",
+            green: "#00FF00",
+            white: "#FFFFFF"
+        })
+        document.write("RESULT: " + JSON.stringify(resultObj));
+
+        document.write(b2);
+        document.write(division);
+        document.write(b2);
+
+        //Write a JavaScript function to check whether an object contains given property. 
+
+        document.write("Write a JavaScript function to check whether an object contains given property.");
+        document.write(b2);
+
+
+        document.write(
+            "function hasKey(obj, key) { return obj != null && hasOwnProperty.call(obj, key); } console.log(hasKey({red: '#FF0000', green: '#00FF00', white: '#FFFFFF'}, 'green')); "
+        )
+
+        document.write(b2);
+
+        function hasKey(obj, key) {
+            return obj != null && hasOwnProperty.call(obj, key);
+        }
+        document.write(hasKey({
+            red: "#FF0000",
+            green: "#00FF00",
+            white: "#FFFFFF"
+        }, "green"));
+
+        document.write(b2);
+        document.write(division);
+        document.write(b2);
+
+
+        //Write a JavaScript function to escape a HTML string. Test Data: 
+        //console.log(escape_HTML('<a href="javascript-string-exercise-17.php" target="_blank">')); 
+
+        // document.write(
+        //     "Write a JavaScript function to escape a HTML string. Test Data: console.log(escape_HTML('<a href='javascript-string-exercise-17.php' target='_blank'>'));"
+        //     );
+        // document.write(b2);
+
+        // function escape_HTML(html_str) {
+        //     'use strict';
+        //     return html_str.replace(/[&<>"]/g,
+        //         function (tag) {
+        //             var chars_to_replace = {
+        //                 '&': '&',
+        //                 '<': '<',
+        //                 '>': '>',
+        //                 '"': '"'
+        //             };
+        //             return chars_to_replace[tag] || tag;
+        //         });
+        // }
+        // document.write(escape_HTML(
+        //     '&lt;a href=&quot;javascript-string-exercise-17.php&quot; target=&quot;_blank&quot;&gt;'));
+
+        document.write(b2);
+
+        document.write(division);
+        document.write(b2);
+
+        //Write a JavaScript function to capitalize the first letter of each word in a string. Test Data:console.log(capitalize_Words('js string exercises')); "Js String Exercises" 
+
+        document.write(
+            "Write a JavaScript function to capitalize the first letter of each word in a string. Test Data:console.log(capitalize_Words('js string exercises'));'Js String Exercises'"
+        );
+
+        document.write(b2);
+
+        document.write(
+            "function capitalize_Words(str) { return str.replace(/\w\S*/g, function(txt){ return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}); } console.log(capitalize_Words('js string exercises'));"
+        );
+
+        function capitalize_Words(str) {
+            return str.replace(/\w\S*/g, function (txt) {
+                return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+            });
+
+        }
+        document.write(b2);
+        document.write(capitalize_Words('js string exercises'));
+
+        document.write(b2);
+        document.write(division);
+        document.write(b2);
+        //Write a JavaScript function to parameterize a string.Test Data:console.log(string_parameterize("Robin Singh from USA.")); "robin-singh-from-usa" 
+        document.write(
+            "Write a JavaScript function to parameterize a string.Test Data: console.log(string_parameterize('Robin Singh from USA.')); 'robin-singh-from-usa' "
+        );
+
+        document.write(b2);
+        document.write(
+            "let string_parameterize = '';string_parameterize = function (str1) { return str1.trim().toLowerCase().replace(/[^a-zA-Z0-9 -]/, '').replace(/\s/g, '-');}; console.log(string_parameterize('Robin Singh from USA.')); "
+        );
+
+
+        let string_parameterize = "";
+        string_parameterize = function (str1) {
+            return str1.trim().toLowerCase().replace(/[^a-zA-Z0-9 -]/, "").replace(/\s/g, "-");
+        };
+        document.write(b2);
+        document.write(string_parameterize("Robin Singh from USA."));
+        document.write(b2);
+        document.write(division);
+        document.write(b2);
+
+        //Write a JavaScript function to split a string and convert it into an array of words. Test Data :console.log(string_to_array("Robin Singh")) ["Robin", "Singh"] 
+
+        document.write(
+            "Write a JavaScript function to split a string and convert it into an array of words. Test Data :console.log(string_to_array('Robin Singh'));['Robin', 'Singh'] "
+        );
+        document.write(b2);
+        document.write(
+            'let  string_to_array= "";string_to_array = function (str) { return str.trim().split(" "); }; console.log(string_to_array("Robin Singh")); '
+        );
+
+        let string_to_array = "";
+        string_to_array = function (str) {
+            return str.trim().split(" ");
+        };
+        document.write(b2);
+        document.write(string_to_array("Robin Singh"));
+        document.write(b2);
+        document.write(division);
+        document.write(b2);
+
+        //Write a JavaScript function to create a case-insensitive search. Test Data: console.log(case_insensitive_search('JavaScript Exercises', 'exercises')); "Matched" console.log(case_insensitive_search('JavaScript Exercises', 'Exercises')); "Matched" console.log(case_insensitive_search('JavaScript Exercises', 'Exercisess')); "Not Matched" 
+
+        document.write(
+            "Write a JavaScript function to create a case-insensitive search. Test Data: console.log(case_insensitive_search('JavaScript Exercises', 'exercises')); 'Matched' console.log(case_insensitive_search('JavaScript Exercises', 'Exercises')); 'Matched' console.log(case_insensitive_search('JavaScript Exercises', 'Exercisess')); 'Not Matched' "
+        );
+        document.write(b2);
+
+        document.write(
+            "function case_insensitive_search(str, search_str) { var result= str.search(new RegExp(search_str, 'i')); if (result>0) return 'Matched'; else return 'Not Matched'; } console.log(case_insensitive_search('JavaScript Exercises', 'exercises')); console.log(case_insensitive_search('JavaScript Exercises', 'Exercises')); console.log(case_insensitive_search('JavaScript Exercises', )"
+        );
+        document.write(b2);
+
+
+        function case_insensitive_search(str, search_str) {
+
+            var result = str.search(new RegExp(search_str, "i"));
+            if (result > 0) {
+                return 'Matched';
+            } else {
+                return 'Not Matched'
+            };
+        }
+        document.write(case_insensitive_search('JavaScript Exercises', 'exercises'));
+        document.write(b2);
+
+        document.write(case_insensitive_search('JavaScript Exercises', 'Exercises'));
+
+        document.write(b2);
+
+
+        document.write(case_insensitive_search('JavaScript Exercises'))
+        document.write(b2);
+        document.write(division);
+        document.write(b2);
+
+
+        // Write a JavaScript function to get time differences in minutes between two dates. 
+        document.write("Write a JavaScript function to get time differences in minutes between two dates. ");
+        document.write(b2);
+
+        document.write(
+            "let dt1 = 0;let dt2 = 0;function diff_minutes(dt2, dt1) { var diff =(dt2.getTime() - dt1.getTime()) / 1000; diff /= 60; return Math.abs(Math.round(diff)); } dt1 = new Date(2014,10,2); dt2 = new Date(2014,10,3); console.log(diff_minutes(dt1, dt2)); "
+        );
+        document.write(b2);
+
+        let dt1 = 0;
+        let dt2 = 0;
+
+        function diff_minutes(dt2, dt1) {
+            var diff = (dt2.getTime() - dt1.getTime()) / 1000;
+            diff /= 60;
+            return Math.abs(Math.round(diff));
+        }
+
+        dt1 = new Date(2014, 10, 2);
+        dt2 = new Date(2014, 10, 3);
+
+        document.write(diff_minutes(dt1, dt2));
+
+        document.write(b2);
+        document.write(division);
+        document.write(b2);
+
+
+        // Write a JavaScript function to get difference to Greenwich time (GMT) in hours.
+
+        document.write("Write a JavaScript function to get difference to Greenwich time (GMT) in hours.");
+
+        document.write(b2);
+
+        document.write(
+            "let dt = new Date(); function diff_to_GMT(dt) { return (-dt.getTimezoneOffset() < 0 ? '-' : '+') + (Math.abs(dt.getTimezoneOffset() / 60) < 10 ? '0' : '') + (Math.abs(dt.getTimezoneOffset() / 60)) + '00';} dt = new Date(); console.log(diff_to_GMT(dt)); dt = new Date(1989, 10, 1); console.log(diff_to_GMT(dt));"
+        );
+
+        document.write(b2);
+
+        let dt = new Date();
+
+        function diff_to_GMT(dt) {
+            return (-dt.getTimezoneOffset() < 0 ? '-' : '+') + (Math.abs(dt.getTimezoneOffset() / 60) < 10 ? '0' : '') +
+                (Math.abs(dt.getTimezoneOffset() / 60)) + '00';
+        }
+        dt = new Date();
+
+        document.write(diff_to_GMT(dt));
+
+
+        dt = new Date(1989, 10, 1);
+        document.write(b2);
+
+        document.write(diff_to_GMT(dt));
+
+
+        document.write(b2);
+        document.write(division);
+        document.write(b2);
+
+        document.write(
+            "Write a JavaScript function to get minutes with leading zeros (00 to 59). Test Data: dt = new Date(1989, 10, 1); console.log(minutes_with_leading_zeros(dt));  '00'"
+        );
+
+        document.write(b2);
+
+        document.write(
+            "  function minutes_with_leading_zeros(dt) { return (dt.getMinutes() < 10 ? '0' : '') + dt.getMinutes(); } "
+        );
+        document.write(b2);
+
+        let dt3 = new Date();
+        let dt4 = new Date();
+
+        function minutes_with_leading_zeros(dt) {
+            return (dt.getMinutes() < 10 ? '0' : '') + dt.getMinutes();
+        }
+
+        document.write(minutes_with_leading_zeros(dt3));
+
+        document.write(b2);
+        dt4 = new Date(1989, 10, 1);
+
+        document.write(minutes_with_leading_zeros(dt4));
+
+        document.write(b2);
+        document.write(division);
+        document.write(b2);
+
+        // Write a JavaScript function to get a two digit representation of a year. Test Data: dt = new Date(); console.log(sort_year(dt)); 
+
+        document.write(
+            "Write a JavaScript function to get a two digit representation of a year. Test Data: dt = new Date(); console.log(sort_year(dt)); "
+        );
+        document.write(b2);
+
+
+        document.write(
+            " let dt5 = 0;let dt6 = 0; function sort_year(dt) {  return ('' + dt.getFullYear()).substr(2); } dt5 = new Date(); console.log(sort_year(dt5)); dt6 = new Date(1989, 10, 1); console.log(sort_year(dt6)); "
+        );
+        document.write(b2);
+
+
+        let dt5 = 0;
+        let dt6 = 0;
+
+        function sort_year(dt) {
+            return ('' + dt.getFullYear()).substr(2);
+        }
+        dt5 = new Date();
+        document.write(sort_year(dt5));
+        document.write(b2);
+
+        dt6 = new Date(1989, 10, 1);
+        document.write(sort_year(dt6));
+
+        document.write(b2);
+        document.write(division);
+        document.write(b2);
+
+        //Write a JavaScript function to get a full textual representation of a month, such as January or June. 
+
+        document.write(
+            "Write a JavaScript function to get a full textual representation of a month, such as January or June. "
+        );
+
+        document.write(b2);
+
+        document.write(
+            "   Date.longMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']; let dt7 = new Date(2015, 11, 1); console.log(full_month(dt7));function full_month(dt) { return Date.longMonths[dt.getMonth()]; }; let dt8 = new Date(); console.log(full_month(dt8)); let dt9 = new Date(2015, 10, 1); console.log(full_month(dt9)); "
+        );
+
+        document.write(b2);
+
+        Date.longMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
+            'October', 'November', 'December'
+        ];
+
+        let dt7 = new Date(2015, 11, 1);
+        console.log(full_month(dt7));
+
+        function full_month(dt) {
+            return Date.longMonths[dt.getMonth()];
+        };
+
+        let dt8 = new Date();
+
+        document.write(full_month(dt8));
+        document.write(b2);
+
+        let dt9 = new Date(2015, 10, 1);
+
+        document.write(full_month(dt9));
+        document.write(b2);
+        document.write(division);
+        document.write(b2);
+
+        document.write("Write a JavaScript function to get the week start date.")
+        //Write a JavaScript function to get the week start date. 
+
+        document.write(
+            "function startOfWeek(date) { console.log(date.getDate()); console.log(date.getDay()); console.log(date.getDay()); var diff = date.getDate() - date.getDay() + (date.getDay() === 0 ? -6 : 1); return new Date(date.setDate(diff)); let dt10 = new Date(); console.log(startOfWeek(dt10).toString()); "
+            );
+
+        document.write(b2);
+
+
+
+        function startOfWeek(date) {
+            console.log(date.getDate());
+            console.log(date.getDay());
+            console.log(date.getDay());
+
+            var diff = date.getDate() - date.getDay() + (date.getDay() === 0 ? -6 : 1);
+
+            return new Date(date.setDate(diff));
+        }
+
+        let dt10 = new Date();
+        document.write((startOfWeek(dt10).toString()));
+        document.write(b2);
+        document.write(division);
+        document.write(b2);
+    </script>
+
+</body>
+
+</html>
