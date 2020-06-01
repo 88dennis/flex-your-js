@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <title>Random Sayings</title>
+</head>
+<body onload="myOnloadFunction()">
+    <br>
+    <br>
+    <div class="container segment placeholder">
+        <div style = "text-align: center">
+        <h2>Generate Random Saying</h2>
+     </div>
+    <br>
+<br>
+    <br>
+    <div style = "display: flex; justify-content: center" class="container placeholder segment">
+        <h3 id="resultId" class="resultClass spanClass" style="width: 65%; height: 175px; text-align: center"></h3>
+    </div>
+    <br>
+    <br>
+
+    <div style = "text-align: center">
+        <button class="ui blue submit button convertBtnClass" id="calcTip">Generate Saying</button>
+    </div>
+    <br>
+    <br>
+
+        <div style = "text-align: center">
+                <a href="index.html">Back to Home Page</a>
+              </div>
+            </div>
+
+        </div>
+        
+              
+        <script type="text/javascript">
+            let resultSpan = document.querySelector("#resultId")
+            let submitBtn = document.getElementById("calcTip");
+            // submitBtn.addEventListener("keyup", enterFunction);
+            submitBtn.addEventListener("click", myFunction);
+
+            let sayingOnload = myOnloadFunction();
+            console.log(sayingOnload, "hello");
+            resultSpan.textContent = sayingOnload;
+
+            function myOnloadFunction() {
+            let sayingsArr = ["Move more, get hit less", "Man must evolve for all human conflict, a method which rejects revenge, aggression and retaliation. The foundation of such a method is called love", "Belief makes you move mountains", "Beautiful places are for those people who didn’t find love...", "The truly natural things are dreams, which nature can’t touch with decay", "Climb the walls you built", "If I am what I have, and if I lose what I have, who, then, am I?", "He who controls others maybe powerfull but he who has mastered himself is mightier still", "Nature tries all possibilities but only the harmonious flourish", "The true strength of the wolf isn’t fangs, speed, and skill. It’s the pack. Whatever world you needlecast into build a pack. Find ways to inspire loyalty", "You are strong, you carry people", "A mans stature is limited only by his imagination", "Comfort is the enemy of progress", "If all is lost there is more to gain", "Ideologies separate us, dreams and anguish bring us together", "Live as if you will die tomorrow, learn as if you’ll live forever"];
+            //    console.log(sayingsArr)
+            //    console.log( ( Math.round(Math.random() * (sayingsArr.length -1))));
+
+            let randomNum = Math.round(Math.random() * (sayingsArr.length -1))
+                return ( sayingsArr[randomNum]);
+
+            }
+
+            function myFunction(){
+               let sayingOnClick = myOnloadFunction();
+            resultSpan.textContent = sayingOnClick;
+             }
+    
+            // function enterFunction(event) {
+            //     if (event.which === 13) {
+            //         submitBtn.click();
+            //     }
+            // }
+        </script>
+
+
+</body>
+</html>
