@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+    />
+    <title>onBlur and onFocus</title>
+    <style>
+      .tooltip {
+        position: relative;
+      }
+
+      .tooltiptext {
+        display: none;
+        /* visibility: hidden; */
+        width: 100%;
+        background-color: #e2dcdc;
+        color: steelblue;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 5px;
+        /* Position the tooltip */
+        /* position: absolute; */
+        z-index: 100;
+      }
+      /* .tooltip:hover .tooltiptext {
+            visibility: visible;
+        } */
+    </style>
+  </head>
+  <body>
+    <div class="column  container segment placeholder">
+      <br />
+      <div
+        class="column container segment placeholder"
+        style="display: flex; justify-content: center; "
+      >
+        <p style="width: 60%">
+          1. Three buttons, labeled Shoot movies, Shoot guns, and Shoot
+          basketballs. When the user clicks any button, use the onClick event
+          handler to call a func- tion that will send a message based on which
+          button was pressed.
+        </p>
+      </div>
+      <br />
+      <br />
+
+      <div style="text-align: center">
+        <button class="ui blue submit button">Shoot Movies</button>
+        <button class="ui blue submit button">Shoot Guns</button>
+        <button class="ui blue submit button">Shoot Basketballs</button>
+      </div>
+
+      <br />
+      <div style="text-align: center">
+        <h1 id="displayMessageId"></h1>
+      </div>
+    </div>
+
+    <div
+      style="background-color: lightgray"
+      id="containerx"
+      class="ui placeholder  segment container"
+    >
+      <br />
+      <div class="ui one column very relaxed stackable grid">
+        <div class="column">
+          <form id="myForm" novalidate>
+            <div class="ui form">
+              <div class="field">
+                <h4>onblur and onfocus</h4>
+                <p>
+                  2. form that contains two text fields to receive the user’s
+                  name and address. When the user leaves each text field, use
+                  the onBlur event handler to check if the user entered anything
+                  in the respective field. If the user didn’t, send an alert
+                  telling him or her so, and use the focus() method to return
+                  focus back to the text field the user just left.
+                </p>
+              </div>
+              <div class="input-field field tooltip">
+                <label for="firstName">Username</label>
+                <input type="text" name="Username" id="username" value="" />
+                <span class="tooltiptext"></span>
+              </div>
+
+              <div class="input-field field tooltip">
+                <label for="lastName">Address</label>
+                <input type="text" name="Address" id="address" value="" />
+                <span class="tooltiptext"></span>
+              </div>
+
+              <div class="field">
+                <!-- <label>Delete this later</label> -->
+                <br />
+                <div class="ui left icon">
+                  <div>
+                    <h3
+                      id="resultId"
+                      class="resultClass spanClass"
+                      style="display: inline;"
+                      type="number;"
+                      placeholder="Result"
+                    ></h3>
+                  </div>
+                </div>
+              </div>
+              <button
+                style="width: 100%;"
+                type="submit"
+                class="ui blue submit button convertBtnClass"
+                id="submitNow"
+              >
+                Enter
+              </button>
+              <br />
+
+                <br />
+                <br />
+              <div class="input-field field tooltip">
+
+                <p>
+                  3. A link that changes the background color to light blue when
+                  the mouse pointer is rolled over it.
+                </p>
+              </div>
+
+              <br />
+              <div style="text-align: center">
+                <a id="anchorId" href="#">Change Background</a>
+              </div>
+
+              <br />
+              <br />
+              <div class="input-field field tooltip">
+              <p>
+                4. Create a form that will contain a textbox. After the user
+                enters text, all the let- ters will be converted to uppercase as
+                soon as he or she clicks anywhere else in the form. (Use the
+                onChange event handler.)
+              </p>
+            </div>
+
+              <div class="input-field field tooltip">
+                <label for="lastName">Texta Area</label>
+                <textarea
+                  style="width: 100%"
+                  name=""
+                  id="textAreaId"
+                  cols="30"
+                  rows="10"
+                  value=""
+                ></textarea>
+                <span class="tooltiptext"></span>
+              <br />
+
+              <p id="isEmptyId"></p>
+
+              </div>
+              <br />
+
+              <div class="input-field field tooltip">
+                    <p> 5. When the user clicks on a button, a function will be called to make sure the field is not empty. In a JavaScript program use the document.getElementByIdI() method to get a reference to the button object. Use the onclick event property.
+                        </p>
+                  </div>
+                  <div class="input-field field tooltip">
+
+                  <button
+                  style="width: 100%;"
+                  type="submit"
+                  class="ui blue button"
+                  id="btnIfEmptyText"
+                >
+                  CHECK IF TEXT AREA IS EMPTY
+                </button>
+            </div>
+
+            <div class="input-field field tooltip">
+
+                <h2>Image Maps</h2>
+                <p>
+                        6. script that will detect what event occurred and the pixel positions of a mouse when it rolls over a hotspot in an image map.
+                      </p>
+            <p>Click on the computer, the phone, or the cup of coffee to go to a new page and read more about the topic:</p>
+            
+            <div id="myDIV">
+            <img id="imgId" src="https://i.imgur.com/jTVX3LB.jpg" alt="Workplace" usemap="#workmap" width="300" height="279">
+            </div>
+            <br>
+            <p id="coordinates"></p>    
+
+          </div>
+    
+
+          </form>
+        </div>
+      </div>
+    </div>
+
+<map name="workmap">
+  <area shape="rect" coords="30,30,200,250" alt="Computer" target="_blank" href="https://en.wikipedia.org/wiki/Computer">
+  <area shape="rect" coords="218,124,250,180" alt="Phone" target="_blank" href="https://en.wikipedia.org/wiki/Mobile_phone">
+  <area shape="circle" coords="255,220,34" alt="Cup of coffee" target="_blank" href="https://en.wikipedia.org/wiki/Coffee">
+</map>
+
+<br/>
+<br/>
+
+<div class="input-field field tooltip">
+    <p> 7. Event Bubbling
+        </p>
+  
+       <p> A click on the inner "p tag" first runs onclick:</p>
+  
+          <p> When an event happens on an element, it first runs the handlers on it, then on its parent, then all the way up on other ancestors.</p>
+  
+        <p>On that "p tag".</p>
+        <p>Then on the outer div tag.</p>
+        <p> Then on the outer form tag.</p>
+        <p> And so on upwards till the document object.</p>
+  
+        <form style="width: 200px; margin: 10px; border: 1px solid blue;" onclick="alert('form')">FORM
+          <div style="width: 80%; margin: 10px; border: 1px solid blue;" onclick="alert('div')">DIV
+            <p style="width: 80%; margin: 10px; border: 1px solid blue;" onclick="alert('p')">P</p>
+          </div>
+        </form>
+  </div>
+<br>
+  <div style="text-align: center">
+    <a id="anchorId" href="index.html">Back to Home Page</a>
+  </div>
+  
+
+</div>
+    <script>
+      let inputs = document.getElementsByTagName("input");
+      window.onload = myFunction();
+      function myFunction() {
+        for (let i = 0; i < inputs.length; i++) {
+          inputs[i].addEventListener("blur", function() {
+            if (this.value === "" || this.value === " ") {
+              console.log(this.value);
+              console.log(this.nextElementSibling);
+              this.nextElementSibling.style.display = "block";
+              this.nextElementSibling.textContent =
+                "Please Enter Your " + this.name;
+              this.focus();
+            } else {
+              this.nextElementSibling.style.display = "none";
+              this.nextElementSibling.textContent = "";
+            }
+          });
+        }
+      }
+
+      let buttons = document.getElementsByClassName("button");
+      let displayMessageElement = document.getElementById("displayMessageId");
+
+      for (let i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function() {
+          displayMessageElement.textContent = buttons[i].textContent;
+        });
+      }
+
+      let anchorElement = document.getElementById("anchorId");
+      anchorElement.addEventListener("mouseover", function() {
+        let containerElement = document.getElementById("containerx");
+        console.log(containerElement.style.backgroundColor);
+
+        if (containerElement.style.backgroundColor === "lightblue") {
+          containerElement.style.backgroundColor = "lightgray";
+        } else if (containerElement.style.backgroundColor === "lightgray") {
+          containerElement.style.backgroundColor = "lightblue";
+        }
+      });
+
+      let textAreaElement = document.getElementById("textAreaId");
+      console.log(textAreaElement)
+
+      textAreaElement.addEventListener("change", function(){
+          this.value = this.value.toUpperCase();
+      });
+
+      textAreaElement.addEventListener("keyup", function(){
+          // this.value = this.value;
+          document.getElementById("isEmptyId").textContent = this.value.toUpperCase()
+
+      });
+
+      document.getElementById("imgId").addEventListener("mousemove", function(event) {
+          console.log(event.clientX);
+          var x = event.clientX;
+        var y = event.clientY;
+          var coor = "Coordinates: (" + x + "," + y + ")";
+        document.getElementById("coordinates").textContent = coor;
+        });
+
+        let btnIfEmptyText = document.getElementById("btnIfEmptyText");
+
+        btnIfEmptyText.addEventListener("click", function(event){
+          event.preventDefault()
+          textAreaElement.value.trim();
+          if(textAreaElement.value === "") {
+              document.getElementById("isEmptyId").textContent = "Text Area is Empty"
+          } else {
+            document.getElementById("isEmptyId").textContent = textAreaElement.value
+          }
+        });
+
+
+    </script>
+  </body>
+</html>
